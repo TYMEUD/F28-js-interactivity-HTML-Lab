@@ -16,7 +16,7 @@ const ul = document.querySelector('ul')
 movieTitle.textContent = inputField.value
 movie.appendChild(movieTitle)
 const deleteBtn = document.createElement('button')
-deleteBtn.textContent = 'x'
+deleteBtn.textContent = ('x')
 deleteBtn.addEventListener('click',deleteMovie)
 movie.appendChild(deleteBtn)
 ul.appendChild(movie)
@@ -27,17 +27,25 @@ const form = document.querySelector('form')
 
 const deleteMovie = (event) => {
     event.target.parentNode.remove()
-    message.textContent = "Movie deleted!"
+    message.textContent = `${event.target.parentNode.firstChild.textContent} deleted!`
+    revealMessage()
 }
 
 const crossOffMovie = (event) => {
     event.target.classList.toggle('checked')
     if (event.target.classList.contains('checked')){
-    message.textContent = "Movie watched!"
- } else
-    message.textContent = "Movie added back!"
+    message.textContent = `${event.target.textContent} watched!`
+    }else{
+    message.textContent = `${event.target.textContent} added back!`}
+    revealMessage()
 }
 
+const revealMessage = () => {
+    message.classList.remove('hide')
+    setTimeout(() => 
+    {message.classList.add('hide')
+    },1000)   
+}
 // Step 3: Combines step 1 and 2 using an Event Listen
 
 form.addEventListener('submit', addMovie)
