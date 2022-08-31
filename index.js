@@ -2,7 +2,7 @@ console.log('Hello World')
 
 // Step 1: Grab an HTML element
 
-// const message = document.querySelector()
+const message = document.querySelector('#message')
 
 
 // Step 2: Write the function
@@ -32,7 +32,7 @@ const deleteMovie = (event) => {
 
 const crossOffMovie = (event) => {
     event.target.classList.toggle('checked')
-    if (event.target.target.classList.contains('checked')){
+    if (event.target.classList.contains('checked')){
     message.textContent = "Movie watched!"
  } else
     message.textContent = "Movie added back!"
